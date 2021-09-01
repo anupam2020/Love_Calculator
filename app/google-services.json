@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "148994927020",
+    "project_id": "love-calculator-71046",
+    "storage_bucket": "love-calculator-71046.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148994927020:android:97c6c00372c1d4e574f209",
+        "android_client_info": {
+          "package_name": "com.example.lovecalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148994927020-0dibms4na6strd1osclvrvhv8fq1h0jm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lovecalculator",
+            "certificate_hash": "7c3deb02e9140275ca0db8e4d5718c5b4dcc8b22"
+          }
+        },
+        {
+          "client_id": "148994927020-20c0aalao06lalrrmur0bkn5pr7bir6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6O7kddH72hvMmRxEq5u0UpB2loYseAUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148994927020-20c0aalao06lalrrmur0bkn5pr7bir6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
