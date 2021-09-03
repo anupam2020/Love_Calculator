@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:alpha="0.1"
+        android:background="@drawable/romantic_love_bg"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/love_calculator_icon"
+            android:id="@+id/profilePic"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anupam Basak"
+            android:id="@+id/nameText"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/profilePic"
+            android:layout_marginTop="5dp"
+            android:gravity="center|center_horizontal"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="anupam_b.cse2019@msit.edu.in"
+            android:id="@+id/emailText"
+            android:textSize="15dp"
+            android:textColor="#99000000"
+            android:layout_below="@id/nameText"
+            android:gravity="center|center_horizontal"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

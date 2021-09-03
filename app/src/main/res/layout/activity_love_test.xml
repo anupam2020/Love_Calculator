@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Love_Test_Activity">
+    android:layout_height="match_parent">
 
-    <!--This Layout will be Drawer Layout-->
+    <!-- Other Stuff here -->
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="165dp"
-        android:layout_height="55dp"
-        android:background="@drawable/login_bg"
-        android:layout_centerInParent="true"
-        android:text="SIGN OUT"
-        android:textSize="18dp"
-        android:textColor="@color/white"
-        android:id="@+id/loveTestSignOut"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frameLayout"/>
 
-</RelativeLayout>
+    <include
+        layout="@layout/love_layout"/>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navView"
+        app:menu="@menu/menu"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_layout"
+        android:background="@drawable/nav_bg" />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

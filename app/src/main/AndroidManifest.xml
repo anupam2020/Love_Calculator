@@ -14,7 +14,8 @@
         android:theme="@style/Theme.LoveCalculator">
         <activity
             android:name=".Love_Test_Activity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".Login_Activity"
             android:exported="true" />

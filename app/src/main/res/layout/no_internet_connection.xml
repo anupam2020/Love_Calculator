@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:background="@drawable/corner_radius_bg">
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
             app:lottie_fileName="no_internet.json"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"

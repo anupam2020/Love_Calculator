@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LoveCalculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.LoveCalculator" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +13,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/violet</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#F4511E</item>
+        <item name="colorPrimaryDark">@color/violet</item>
+
+        <!-- colorSecondary will be applied to Menu item of NavigationView -->
+        <item name="colorSecondary">#1E88E5</item>
+    </style>
+
 </resources>
