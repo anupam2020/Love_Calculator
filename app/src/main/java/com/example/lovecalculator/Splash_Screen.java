@@ -40,9 +40,9 @@ public class Splash_Screen extends AppCompatActivity {
         imgLove=findViewById(R.id.loveImage);
         txtLove=findViewById(R.id.loveText);
 
-        imgLove.setAnimation(bottom);
+        imgLove.startAnimation(bottom);
 
-        txtLove.setAnimation(top);
+        txtLove.startAnimation(top);
 
 
 

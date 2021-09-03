@@ -7,21 +7,68 @@
     tools:context=".MainActivity"
     android:id="@+id/mainRelative1">
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/mainRelative2"
-        android:background="@drawable/bottom_radius">
+        android:layout_height="match_parent"
+        android:alpha="0.075"
+        android:background="@drawable/background" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/love_balloons"
-            android:id="@+id/mainBalloons"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Love Calculator"
+        android:layout_marginTop="50dp"
+        android:textSize="35dp"
+        android:fontFamily="@font/aladin"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mainLoveText"/>
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="True love stories never have endings"
+        android:textSize="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mainSubLoveText"
+        android:layout_below="@id/mainLoveText"/>
 
-    <include
-        layout="@layout/login_layout" />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/love_calculator_icon"
+        android:id="@+id/mainImage"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_bg_black"
+            android:text="SIGN IN"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:id="@+id/mainSignInButton"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/black_border"
+            android:layout_marginTop="15dp"
+            android:text="SIGN UP"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:id="@+id/mainSignUpButton"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
