@@ -34,7 +34,7 @@ import java.util.HashMap;
 
 public class Login_Activity extends AppCompatActivity {
 
-    private TextView signUp;
+    private TextView signUp,forgot;
     
     private TextInputEditText email,pass;
     
@@ -60,7 +60,8 @@ public class Login_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         signUp=findViewById(R.id.loginNoAccount);
-        
+        forgot=findViewById(R.id.loginForgot);
+
         email=findViewById(R.id.loginEditText1);
         pass=findViewById(R.id.loginEditText2);
         
@@ -138,6 +139,47 @@ public class Login_Activity extends AppCompatActivity {
 
             }
         });
+
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.show();
+                dialog.setContentView(R.layout.loading_bg);
+                dialog.setCancelable(false);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                if(email.getText().toString().isEmpty())
+                {
+                    dialog.dismiss();
+                    DynamicToast.makeWarning(Login_Activity.this,"Please enter your email!",1500).show();
+                }
+                else
+                {
+                    firebaseAuth.sendPasswordResetEmail(email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if(task.isSuccessful())
+                            {
+                                dialog.dismiss();
+                                DynamicToast.makeSuccess(Login_Activity.this,"Password Reset Link was sent to your account!",3000).show();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            dialog.dismiss();
+                            DynamicToast.makeError(Login_Activity.this,e.getMessage(),1500).show();
+                        }
+                    });
+                }
+
+            }
+        });
+
 
     }
 

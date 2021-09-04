@@ -3,15 +3,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="165dp"
-        android:layout_height="55dp"
-        android:background="@drawable/login_bg"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="35dp"
-        android:text="SIGN OUT"
-        android:textSize="18dp"
-        android:textColor="@color/white"
-        android:id="@+id/loveTestSignOut"/>
-
 </RelativeLayout>
