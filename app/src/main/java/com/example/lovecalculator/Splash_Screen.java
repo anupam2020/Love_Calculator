@@ -45,13 +45,13 @@ public class Splash_Screen extends AppCompatActivity {
         txtLove.startAnimation(top);
 
 
-
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 dialog.show();
                 dialog.setContentView(R.layout.loading_bg);
+                dialog.setCancelable(false);
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
                 new Handler().postDelayed(new Runnable() {

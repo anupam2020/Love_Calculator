@@ -144,6 +144,9 @@ public class Login_Activity extends AppCompatActivity {
 
 
     private void signIn() {
+        //For fresh logins
+        mGoogleSignInClient.signOut();
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -173,6 +176,7 @@ public class Login_Activity extends AppCompatActivity {
                 dialog.show();
                 dialog.setContentView(R.layout.no_internet_connection);
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.setCancelable(true);
                 Log.w(TAG, "Google sign in failed", e);
             }
         }

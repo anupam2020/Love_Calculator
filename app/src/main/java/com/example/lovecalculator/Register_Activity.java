@@ -134,6 +134,10 @@ public class Register_Activity extends AppCompatActivity {
     }
 
     private void signIn() {
+
+        //For fresh registers
+        mGoogleSignInClient.signOut();
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -163,6 +167,7 @@ public class Register_Activity extends AppCompatActivity {
                 dialog.dismiss();
                 dialog.show();
                 dialog.setContentView(R.layout.no_internet_connection);
+                dialog.setCancelable(true);
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             }
         }

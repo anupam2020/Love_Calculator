@@ -50,7 +50,8 @@
                     android:drawableStart="@drawable/ic_baseline_person_outline_24"
                     android:drawableTint="@color/orange"
                     android:drawablePadding="10dp"
-                    android:id="@+id/registerEditText1"/>
+                    android:id="@+id/registerEditText1"
+                    android:layout_gravity="center"/>
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -63,7 +64,7 @@
                 app:endIconMode="clear_text"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_below="@id/registerLayout1"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
 
@@ -88,7 +89,7 @@
                 app:endIconMode="password_toggle"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_below="@id/registerLayout2"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
 
@@ -112,7 +113,7 @@
                 android:background="@drawable/login_bg"
                 android:layout_below="@id/registerLayout3"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="30dp"
                 android:text="SIGN UP"
                 android:textSize="18dp"
                 android:textColor="@color/white"
