@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="@android:color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Name: "
+                android:id="@+id/historyName"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:layout_toLeftOf="@id/historyDelete"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Partner's Name: "
+                android:id="@+id/historyPartner"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:layout_toLeftOf="@id/historyDelete"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/historyName"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Percentage: "
+                android:id="@+id/historyPercentage"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:layout_toLeftOf="@id/historyDelete"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/historyPartner"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Result: "
+                android:id="@+id/historyResult"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:layout_toLeftOf="@id/historyDelete"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/historyPercentage"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/historyDelete"
+                app:tint="@color/red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24 Aug 12:31 PM"
+                android:layout_centerHorizontal="true"
+                android:textSize="12dp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/historyDateTime" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -38,6 +40,34 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
     private TextView hName,hEmail;
 
     @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(Love_Test_Activity.this);
+        builder.setTitle("Warning");
+        builder.setMessage("Please select any one!");
+
+        builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("Logout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                firebaseAuth.signOut();
+                startActivity(new Intent(Love_Test_Activity.this,MainActivity.class));
+                finish();
+            }
+        });
+
+        builder.show();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_love_test);
@@ -62,6 +92,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
         hName.setText(firebaseAuth.getCurrentUser().getDisplayName());
         hEmail.setText(firebaseAuth.getCurrentUser().getEmail());
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             if(firebaseAuth.getCurrentUser().isEmailVerified())
             {
                 startActivity(new Intent(MainActivity.this,Love_Test_Activity.class));
+                finish();
             }
 
         }
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this,Login_Activity.class));
+                finish();
             }
         });
 
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this,Register_Activity.class));
+                finish();
             }
         });
 
