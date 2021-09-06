@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -30,6 +32,8 @@ public class Splash_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         handler=new Handler(Looper.getMainLooper());
 
         dialog=new ProgressDialog(this);
@@ -43,6 +47,15 @@ public class Splash_Screen extends AppCompatActivity {
         imgLove.startAnimation(bottom);
 
         txtLove.startAnimation(top);
+
+
+        int nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags)
+        {
+            case Configuration.UI_MODE_NIGHT_YES:
+                txtLove.setTextColor(Color.WHITE);
+                break;
+        }
 
 
         handler.postDelayed(new Runnable() {

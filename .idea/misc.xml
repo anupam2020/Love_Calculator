@@ -7,19 +7,24 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/blue_border.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/bottom_radius.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/button_bg_black.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/button_bg_white.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/corner_radius_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/corner_radius_transparent_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/google_bg.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/gradient_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_sentiment_very_satisfied_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/login_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/nav_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/white_border.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_love_test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_feedback.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_history.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_love__test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_love_test.xml" value="0.2" />

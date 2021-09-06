@@ -4,12 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="4dp"
-        app:cardBackgroundColor="@android:color/transparent">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/corner_radius_transparent_bg">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -89,7 +90,7 @@
         </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
 
 </RelativeLayout>

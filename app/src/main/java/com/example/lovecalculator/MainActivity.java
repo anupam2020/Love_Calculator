@@ -3,6 +3,8 @@ package com.example.lovecalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -75,6 +77,32 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
+
+
+        int nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags)
+        {
+            case Configuration.UI_MODE_NIGHT_YES:
+                mainText.setTextColor(Color.WHITE);
+
+                signIn.setBackgroundResource(R.drawable.button_bg_white);
+                signIn.setTextColor(Color.BLACK);
+
+                signUp.setBackgroundResource(R.drawable.white_border);
+                signUp.setTextColor(Color.WHITE);
+
+                break;
+        }
+
+
+
+
+
+
+
+
+
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override

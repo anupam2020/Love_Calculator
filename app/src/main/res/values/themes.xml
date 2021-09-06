@@ -20,8 +20,16 @@
         <item name="colorPrimary">#F4511E</item>
         <item name="colorPrimaryDark">@color/violet</item>
 
-        <!-- colorSecondary will be applied to Menu item of NavigationView -->
-        <item name="colorSecondary">#1E88E5</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/violet</item>
+    </style>
+
+
+    <style name="FeedbackTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#1E88E5</item>
+        <item name="colorPrimaryDark">@color/violet</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/violet</item>
     </style>
 
 </resources>

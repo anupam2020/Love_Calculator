@@ -12,6 +12,15 @@
         android:alpha="0.075"
         android:background="@drawable/background"/>
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/couple_kiss"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"/>
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

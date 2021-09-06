@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +38,7 @@ import java.util.HashMap;
 public class Register_Activity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
-    private TextView signIn;
+    private TextView signIn,regOR;
 
     private TextInputEditText name,email,pass;
 
@@ -64,6 +66,7 @@ public class Register_Activity extends AppCompatActivity {
         name=findViewById(R.id.registerEditText1);
         email=findViewById(R.id.registerEditText2);
         pass=findViewById(R.id.registerEditText3);
+        regOR=findViewById(R.id.registerOR);
 
         signUp=findViewById(R.id.registerButton);
 
@@ -74,6 +77,15 @@ public class Register_Activity extends AppCompatActivity {
         reference= FirebaseDatabase.getInstance().getReference("Users");
 
         dialog=new ProgressDialog(Register_Activity.this);
+
+
+        int nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags)
+        {
+            case Configuration.UI_MODE_NIGHT_YES:
+                regOR.setTextColor(Color.WHITE);
+                break;
+        }
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

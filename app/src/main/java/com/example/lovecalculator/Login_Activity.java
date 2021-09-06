@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,7 +36,7 @@ import java.util.HashMap;
 
 public class Login_Activity extends AppCompatActivity {
 
-    private TextView signUp,forgot;
+    private TextView signUp,forgot,loginOR;
     
     private TextInputEditText email,pass;
     
@@ -61,6 +63,7 @@ public class Login_Activity extends AppCompatActivity {
 
         signUp=findViewById(R.id.loginNoAccount);
         forgot=findViewById(R.id.loginForgot);
+        loginOR=findViewById(R.id.loginOR);
 
         email=findViewById(R.id.loginEditText1);
         pass=findViewById(R.id.loginEditText2);
@@ -86,6 +89,16 @@ public class Login_Activity extends AppCompatActivity {
                 finish();
             }
         }
+
+
+        int nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (nightModeFlags)
+        {
+            case Configuration.UI_MODE_NIGHT_YES:
+                loginOR.setTextColor(Color.WHITE);
+                break;
+        }
+
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -215,11 +228,7 @@ public class Login_Activity extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
 
                 dialog.dismiss();
-                dialog.show();
-                dialog.setContentView(R.layout.no_internet_connection);
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                dialog.setCancelable(true);
-                Log.w(TAG, "Google sign in failed", e);
+                DynamicToast.makeError(Login_Activity.this,"Google sign in failed!",3000).show();
             }
         }
     }

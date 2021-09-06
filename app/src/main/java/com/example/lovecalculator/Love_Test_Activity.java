@@ -39,6 +39,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
     private TextView hName,hEmail;
 
+    private TextView topText;
+
     @Override
     public void onBackPressed() {
 
@@ -74,6 +76,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
         logOut=findViewById(R.id.testLogout);
         menu=findViewById(R.id.testMenu);
+        topText=findViewById(R.id.loveTestTopText);
 
         drawer=findViewById(R.id.drawer_layout);
 
@@ -94,6 +97,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         hEmail.setText(firebaseAuth.getCurrentUser().getEmail());
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
+        nav.getMenu().getItem(0).setChecked(true);
+        topText.setText("Love Test");
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,14 +129,17 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
             case R.id.loveTest:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
+                topText.setText("Love Test");
                 break;
 
             case R.id.history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new History()).commit();
+                topText.setText("History");
                 break;
 
             case R.id.feedback:
-                DynamicToast.make(Love_Test_Activity.this,"Feedback",2000).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Feedback()).commit();
+                topText.setText("Feedback");
                 break;
 
             case R.id.shareApp:
