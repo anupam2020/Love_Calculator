@@ -22,8 +22,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.HashMap;
@@ -37,7 +40,9 @@ public class Feedback extends Fragment {
 
     private FirebaseAuth firebaseAuth;
 
-    private DatabaseReference reference;
+    private DatabaseReference reference,nameRef;
+
+    private String username="";
 
 
     @Override
@@ -55,6 +60,28 @@ public class Feedback extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
 
         reference= FirebaseDatabase.getInstance().getReference("User_Feedback");
+        nameRef= FirebaseDatabase.getInstance().getReference("Users");
+
+
+        nameRef.child(firebaseAuth.getCurrentUser().getUid()).child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    if(dataSnapshot.getKey().equals("Name"))
+                    {
+                        username=dataSnapshot.getValue().toString();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         greenEmoji.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +99,7 @@ public class Feedback extends Fragment {
                 //map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
                 map.put("Feedback",feedback);
 
-                reference.child(firebaseAuth.getCurrentUser().getUid()).push().setValue(map)
+                reference.child(firebaseAuth.getCurrentUser().getUid()).child(username).push().setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -111,7 +138,7 @@ public class Feedback extends Fragment {
                 map.put("Feedback",feedback);
 
 
-                reference.child(firebaseAuth.getCurrentUser().getUid()).push().setValue(map)
+                reference.child(firebaseAuth.getCurrentUser().getUid()).child(username).push().setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -149,7 +176,7 @@ public class Feedback extends Fragment {
                 //map.put("Name",firebaseAuth.getCurrentUser().getEmail());
                 map.put("Feedback",feedback);
 
-                reference.child(firebaseAuth.getCurrentUser().getUid()).push().setValue(map)
+                reference.child(firebaseAuth.getCurrentUser().getUid()).child(username).push().setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

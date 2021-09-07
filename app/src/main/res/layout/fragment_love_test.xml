@@ -16,7 +16,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/couple_kiss"
+        android:src="@drawable/couple_kiss"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"/>
 

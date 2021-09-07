@@ -1,12 +1,14 @@
 package com.example.lovecalculator;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import org.json.JSONException;
@@ -146,7 +151,10 @@ public class Love_Test extends Fragment {
                                     public void onComplete(@NonNull Task<Void> task) {
 
                                         dialog.dismiss();
-                                        DynamicToast.makeSuccess(getActivity(),"Success!",1500).show();
+                                        //DynamicToast.makeSuccess(getActivity(),"Success!",1500).show();
+
+                                        startActivity(new Intent(getActivity(),LoveResultActivity.class));
+
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

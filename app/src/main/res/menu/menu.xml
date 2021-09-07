@@ -36,7 +36,7 @@
                     android:id="@+id/shareApp"/>
 
                 <item
-                    android:title="About"
+                    android:title="About Us"
                     android:icon="@drawable/ic_outline_info_24"
                     android:id="@+id/about"/>
 

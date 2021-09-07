@@ -6,12 +6,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -104,9 +107,30 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
             @Override
             public void onClick(View v) {
 
-                firebaseAuth.signOut();
-                startActivity(new Intent(Love_Test_Activity.this,Login_Activity.class));
-                finish();
+                AlertDialog.Builder builder=new AlertDialog.Builder(Love_Test_Activity.this);
+                builder.setTitle("Logout");
+                builder.setMessage("Do you really want to logout?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        firebaseAuth.signOut();
+                        startActivity(new Intent(Love_Test_Activity.this,Login_Activity.class));
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.show();
+
             }
         });
 
@@ -147,7 +171,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.about:
-                DynamicToast.make(Love_Test_Activity.this,"About",2000).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new AboutUs()).commit();
+                topText.setText("About Us");
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
