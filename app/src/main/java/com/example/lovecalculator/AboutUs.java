@@ -40,6 +40,8 @@ public class AboutUs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        inflater.getContext().setTheme(R.style.AppTheme);
+
         return inflater.inflate(R.layout.fragment_about_us, container, false);
     }
 }

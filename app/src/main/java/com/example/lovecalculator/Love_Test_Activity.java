@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -21,8 +22,11 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 import com.shreyaspatil.material.navigationview.MaterialNavigationView;
 
@@ -30,7 +34,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
     private FirebaseAuth firebaseAuth;
 
-    private DatabaseReference reference;
+    private DatabaseReference nameRef;
 
     private NavigationView nav;
 
@@ -43,6 +47,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
     private TextView hName,hEmail;
 
     private TextView topText;
+
+    private String userName,userEmail;
 
     @Override
     public void onBackPressed() {
@@ -85,7 +91,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
         firebaseAuth=FirebaseAuth.getInstance();
 
-        reference= FirebaseDatabase.getInstance().getReference("Users");
+        nameRef= FirebaseDatabase.getInstance().getReference("Users");
 
         nav=findViewById(R.id.navView);
 
@@ -95,9 +101,6 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         hEmail=view.findViewById(R.id.headerEmailText);
 
         nav.setNavigationItemSelectedListener(this);
-
-        hName.setText(firebaseAuth.getCurrentUser().getDisplayName());
-        hEmail.setText(firebaseAuth.getCurrentUser().getEmail());
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
         nav.getMenu().getItem(0).setChecked(true);
@@ -135,6 +138,33 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         });
 
 
+        nameRef.child(firebaseAuth.getCurrentUser().getUid()).child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    if(dataSnapshot.getKey().equals("Name"))
+                    {
+                        userName=dataSnapshot.getValue().toString();
+                        hName.setText(userName);
+
+                    }
+                    if(dataSnapshot.getKey().equals("Email"))
+                    {
+                        userEmail=dataSnapshot.getValue().toString();
+                        hEmail.setText(userEmail);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +197,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.shareApp:
-                DynamicToast.make(Love_Test_Activity.this,"Share App",2000).show();
+                shareApp();
                 break;
 
             case R.id.about:
@@ -177,5 +207,20 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void shareApp()
+    {
+        try {
+            final String appPackageName = Love_Test_Activity.this.getPackageName();
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out the App at: https://play.google.com/store/apps/details?id=" + appPackageName);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        } catch(Exception e) {
+            DynamicToast.makeError(Love_Test_Activity.this,e.getMessage(),1500).show();
+        }
+
     }
 }

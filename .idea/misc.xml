@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/black_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/black_border_radius_low.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/blue_border.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/bottom_radius.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/button_bg_black.xml" value="0.2703125" />
@@ -13,12 +14,15 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/corner_radius_transparent_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/google_bg.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/gradient_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/grey_bg_shimmer.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_sentiment_very_satisfied_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/login_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/nav_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/red_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/violet_bg_corner_radius.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/white_border.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/about_alert_layout.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
@@ -29,11 +33,13 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_about_us.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_feedback.xml" value="0.2" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_history.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_history.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_love__test.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/fragment_love_test.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/header_layout.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/history_content.xml" value="0.15443840579710144" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/history_design_layout.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/history_shimmer_layout.xml" value="0.2318840579710145" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/loading_bg.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/login_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/love_layout.xml" value="0.13020833333333334" />

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.075"
-        android:background="@drawable/background"/>
+        android:background="@drawable/background" />
 
     <ImageView
         android:layout_width="100dp"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Anupam"
+        android:text=""
         android:layout_below="@id/loveResultText"
         android:textSize="40dp"
         android:layout_marginTop="50dp"
@@ -57,7 +57,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Anupam"
+        android:text=""
         android:layout_below="@id/loveResultImage2"
         android:textSize="40dp"
         android:textColor="@color/pink"
@@ -72,26 +72,28 @@
         android:layout_height="150dp"
         android:layout_below="@+id/loveResultPartner"
         android:layout_centerHorizontal="true"
-        android:id="@+id/loveResultRelative"
-        android:background="@drawable/love_wings1">
+        android:id="@+id/loveResultRelative1"
+        android:background="@drawable/love_wings1"
+        android:layout_marginTop="15dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="84%"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/aladin"
             android:id="@+id/loveResultPercentage"
-            android:layout_centerInParent="true"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/aladin"
+            android:text=""
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
     </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Can choose someone better!"
-        android:layout_below="@id/loveResultRelative"
+        android:text=""
+        android:layout_below="@id/loveResultRelative1"
         android:textSize="25dp"
         android:textColor="@color/pink"
         android:fontFamily="@font/aladin"
@@ -102,7 +104,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/loveResultLinear"
+        android:id="@+id/loveResultRelative2"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"

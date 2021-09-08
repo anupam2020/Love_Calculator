@@ -138,6 +138,7 @@ public class Love_Test extends Fragment {
                                 String percentage=jsonObject.getString("percentage");
                                 String result=jsonObject.getString("result");
 
+
                                 HashMap<String,String> map=new HashMap();
                                 map.put("Name",sName);
                                 map.put("Partner",sPartner);
@@ -153,7 +154,12 @@ public class Love_Test extends Fragment {
                                         dialog.dismiss();
                                         //DynamicToast.makeSuccess(getActivity(),"Success!",1500).show();
 
-                                        startActivity(new Intent(getActivity(),LoveResultActivity.class));
+                                        Intent intent=new Intent(getActivity(),LoveResultActivity.class);
+                                        intent.putExtra("Name",sName);
+                                        intent.putExtra("Partner",sPartner);
+                                        intent.putExtra("Result",result);
+                                        intent.putExtra("Percentage",percentage);
+                                        startActivity(intent);
 
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -184,6 +190,8 @@ public class Love_Test extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        inflater.getContext().setTheme(R.style.AppTheme);
+
         return inflater.inflate(R.layout.fragment_love_test, container, false);
     }
 }

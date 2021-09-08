@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +35,8 @@ public class History extends Fragment {
 
     String myKey;
 
+    ShimmerFrameLayout shimmer;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -41,6 +44,8 @@ public class History extends Fragment {
         recyclerView=view.findViewById(R.id.historyRecyclerView);
 
         arrayList=new ArrayList<>();
+
+        shimmer=view.findViewById(R.id.shimmerFrameLayout);
 
         adapter=new Item_Adapter(arrayList,getActivity());
         recyclerView.setAdapter(adapter);
@@ -58,6 +63,8 @@ public class History extends Fragment {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
 
+                    shimmer.startShimmer();
+
                     //Log.d("Keys",dataSnapshot.getKey());
 
                     myKey=dataSnapshot.getKey();
@@ -69,6 +76,9 @@ public class History extends Fragment {
                     Log.d("Partner",String.valueOf(dataSnapshot.child("Partner").getValue()));
                     Log.d("Percentage",String.valueOf(dataSnapshot.child("Percentage").getValue()));
                 }
+
+                shimmer.stopShimmer();
+                shimmer.setVisibility(View.GONE);
 
                 adapter.notifyDataSetChanged();
             }
@@ -86,6 +96,8 @@ public class History extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        inflater.getContext().setTheme(R.style.AppTheme);
+
         return inflater.inflate(R.layout.fragment_history, container, false);
     }
 }

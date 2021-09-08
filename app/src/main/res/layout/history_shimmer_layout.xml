@@ -21,18 +21,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Name: "
                 android:id="@+id/historyName"
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:singleLine="true"
                 android:layout_toLeftOf="@id/historyDelete"
-                android:layout_alignParentLeft="true" />
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/grey_bg_shimmer"
+                android:layout_marginRight="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Partner's Name: "
                 android:id="@+id/historyPartner"
                 android:textColor="@color/black"
                 android:textSize="15dp"
@@ -40,12 +40,13 @@
                 android:layout_toLeftOf="@id/historyDelete"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@id/historyName"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_bg_shimmer"
+                android:layout_marginRight="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Percentage: "
                 android:id="@+id/historyPercentage"
                 android:textColor="@color/black"
                 android:textSize="15dp"
@@ -53,12 +54,13 @@
                 android:layout_toLeftOf="@id/historyDelete"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@id/historyPartner"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_bg_shimmer"
+                android:layout_marginRight="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Result: "
                 android:id="@+id/historyResult"
                 android:textColor="@color/black"
                 android:textSize="15dp"
@@ -66,7 +68,9 @@
                 android:layout_toLeftOf="@id/historyDelete"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@id/historyPercentage"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_bg_shimmer"
+                android:layout_marginRight="30dp"/>
 
             <ImageView
                 android:layout_width="30dp"
@@ -78,13 +82,15 @@
                 app:tint="@color/red" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="24 Aug 12:31 PM"
-                android:layout_centerHorizontal="true"
+                android:gravity="center"
                 android:textSize="12dp"
                 android:layout_alignParentBottom="true"
-                android:id="@+id/historyDateTime" />
+                android:id="@+id/historyDateTime"
+                android:background="@drawable/grey_bg_shimmer"
+                android:layout_toLeftOf="@id/historyDelete"
+                android:layout_marginRight="30dp"/>
 
 
         </RelativeLayout>
