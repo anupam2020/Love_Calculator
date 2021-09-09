@@ -52,4 +52,5 @@ dependencies {
     implementation 'com.shreyaspatil:MaterialNavigationView:1.2'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.google.firebase:firebase-messaging'
 }

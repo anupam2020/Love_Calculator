@@ -52,7 +52,7 @@ public class Register_Activity extends AppCompatActivity {
 
     private ProgressDialog dialog;
 
-    private ImageView googleBtn;
+    private ImageView googleBtn,twitterBtn;
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -73,6 +73,7 @@ public class Register_Activity extends AppCompatActivity {
         signUp=findViewById(R.id.registerButton);
 
         googleBtn=findViewById(R.id.registerGoogleButton);
+        twitterBtn=findViewById(R.id.registerTwitterButton);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -114,6 +115,17 @@ public class Register_Activity extends AppCompatActivity {
 
                 signIn();
 
+            }
+        });
+
+
+        twitterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Register_Activity.this,TwitterActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
             }
         });
 
@@ -211,7 +223,7 @@ public class Register_Activity extends AppCompatActivity {
                                     {
                                         dialog.dismiss();
                                         DynamicToast.makeSuccess(Register_Activity.this,"Registration Successful!",3000).show();
-                                        startActivity(new Intent(Register_Activity.this,Login_Activity.class));
+                                        startActivity(new Intent(Register_Activity.this,Love_Test_Activity.class));
                                         finish();
                                     }
                                 }

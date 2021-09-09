@@ -1,5 +1,6 @@
 package com.example.lovecalculator;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,17 +26,17 @@ import java.util.ArrayList;
 
 public class History extends Fragment {
 
-    RecyclerView recyclerView;
-    Item_Adapter adapter;
-    ArrayList<Item_Model> arrayList;
+    private RecyclerView recyclerView;
+    private Item_Adapter adapter;
+    private ArrayList<Item_Model> arrayList;
 
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
-    DatabaseReference reference;
+    private DatabaseReference reference;
 
-    String myKey;
+    private String myKey;
 
-    ShimmerFrameLayout shimmer;
+    private ProgressDialog dialog;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -45,10 +46,15 @@ public class History extends Fragment {
 
         arrayList=new ArrayList<>();
 
-        shimmer=view.findViewById(R.id.shimmerFrameLayout);
-
         adapter=new Item_Adapter(arrayList,getActivity());
         recyclerView.setAdapter(adapter);
+
+        dialog=new ProgressDialog(getActivity());
+
+        dialog.show();
+        dialog.setContentView(R.layout.loading_bg);
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -63,8 +69,6 @@ public class History extends Fragment {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
 
-                    shimmer.startShimmer();
-
                     //Log.d("Keys",dataSnapshot.getKey());
 
                     myKey=dataSnapshot.getKey();
@@ -77,8 +81,7 @@ public class History extends Fragment {
                     Log.d("Percentage",String.valueOf(dataSnapshot.child("Percentage").getValue()));
                 }
 
-                shimmer.stopShimmer();
-                shimmer.setVisibility(View.GONE);
+                dialog.dismiss();
 
                 adapter.notifyDataSetChanged();
             }
@@ -86,6 +89,7 @@ public class History extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+                dialog.dismiss();
                 DynamicToast.makeError(getActivity(),error.getMessage(),1500).show();
             }
         });
