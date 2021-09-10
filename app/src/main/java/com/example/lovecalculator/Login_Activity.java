@@ -50,7 +50,7 @@ public class Login_Activity extends AppCompatActivity {
     
     private ProgressDialog dialog;
 
-    private ImageView googleBtn;
+    private ImageView googleBtn,twitterBtn,facebookBtn;
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -73,6 +73,8 @@ public class Login_Activity extends AppCompatActivity {
         signIn=findViewById(R.id.loginButton);
 
         googleBtn=findViewById(R.id.loginGoogleButton);
+        twitterBtn=findViewById(R.id.loginTwitterButton);
+        facebookBtn=findViewById(R.id.loginFacebookButton);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -119,6 +121,30 @@ public class Login_Activity extends AppCompatActivity {
 
             }
         });
+
+
+
+        twitterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Login_Activity.this,TwitterActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
+
+        facebookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Login_Activity.this, FacebookAuthActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
 
 
         signUp.setOnClickListener(new View.OnClickListener() {

@@ -51,42 +51,22 @@ public class TwitterActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
 
-                                    authResult.getUser().sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    HashMap map=new HashMap();
+                                    map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
+                                    map.put("Username",authResult.getAdditionalUserInfo().getUsername());
+                                    map.put("Email",authResult.getUser().getEmail());
+
+
+                                    reference.child(firebaseAuth.getCurrentUser().getUid()).child("Profile")
+                                            .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
 
                                             if(task.isSuccessful())
                                             {
-
-                                                HashMap map=new HashMap();
-                                                map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
-                                                map.put("Username",authResult.getAdditionalUserInfo().getUsername());
-                                                map.put("Profile",authResult.getUser().getEmail());
-
-
-                                                reference.child(firebaseAuth.getCurrentUser().getUid()).child("Profile")
-                                                        .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                                        if(task.isSuccessful())
-                                                        {
-                                                            DynamicToast.makeSuccess(TwitterActivity.this,"Registration Successful! Please verify your Email",3000).show();
-                                                            startActivity(new Intent(TwitterActivity.this,Login_Activity.class));
-                                                            finish();
-                                                        }
-                                                    }
-                                                }).addOnFailureListener(new OnFailureListener() {
-                                                    @Override
-                                                    public void onFailure(@NonNull Exception e) {
-
-                                                        DynamicToast.makeError(TwitterActivity.this,e.getMessage(),2000).show();
-                                                        finish();
-                                                    }
-                                                });
-
-
+                                                DynamicToast.makeSuccess(TwitterActivity.this,"Login Successful!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                                startActivity(new Intent(TwitterActivity.this,Love_Test_Activity.class));
+                                                finish();
                                             }
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
@@ -116,45 +96,25 @@ public class TwitterActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
 
-                                    authResult.getUser().sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-
-                                                    if(task.isSuccessful())
-                                                    {
-
-                                                        HashMap map=new HashMap();
-                                                        map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
-                                                        map.put("Username",authResult.getAdditionalUserInfo().getUsername());
-                                                        map.put("Profile",authResult.getUser().getEmail());
+                                    HashMap map=new HashMap();
+                                    map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
+                                    map.put("Username",authResult.getAdditionalUserInfo().getUsername());
+                                    map.put("Email",authResult.getUser().getEmail());
 
 
-                                                        reference.child(firebaseAuth.getCurrentUser().getUid()).child("Profile")
-                                                                .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
+                                    reference.child(firebaseAuth.getCurrentUser().getUid()).child("Profile")
+                                            .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
 
-                                                                if(task.isSuccessful())
-                                                                {
-                                                                    DynamicToast.makeSuccess(TwitterActivity.this,"Registration Successful! Please verify your Email",3000).show();
-                                                                    startActivity(new Intent(TwitterActivity.this,Login_Activity.class));
-                                                                    finish();
-                                                                }
-                                                            }
-                                                        }).addOnFailureListener(new OnFailureListener() {
-                                                            @Override
-                                                            public void onFailure(@NonNull Exception e) {
-
-                                                                DynamicToast.makeError(TwitterActivity.this,e.getMessage(),2000).show();
-                                                                finish();
-                                                            }
-                                                        });
-
-
-                                                    }
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
+                                            if(task.isSuccessful())
+                                            {
+                                                DynamicToast.makeSuccess(TwitterActivity.this,"Registration Successful!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                                startActivity(new Intent(TwitterActivity.this,Love_Test_Activity.class));
+                                                finish();
+                                            }
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
 

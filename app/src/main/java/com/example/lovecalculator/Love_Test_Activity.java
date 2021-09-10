@@ -191,6 +191,11 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 topText.setText("History");
                 break;
 
+            case R.id.emailVerification:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Verification()).commit();
+                topText.setText("Verification");
+                break;
+
             case R.id.feedback:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Feedback()).commit();
                 topText.setText("Feedback");

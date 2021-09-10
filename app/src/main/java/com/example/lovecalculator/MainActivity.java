@@ -79,11 +79,10 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null)
         {
-            if(firebaseAuth.getCurrentUser().isEmailVerified())
-            {
+
                 startActivity(new Intent(MainActivity.this,Love_Test_Activity.class));
                 finish();
-            }
+
 
         }
 

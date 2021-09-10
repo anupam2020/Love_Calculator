@@ -52,7 +52,7 @@ public class Register_Activity extends AppCompatActivity {
 
     private ProgressDialog dialog;
 
-    private ImageView googleBtn,twitterBtn;
+    private ImageView googleBtn,twitterBtn,facebookBtn;
 
     GoogleSignInClient mGoogleSignInClient;
 
@@ -74,6 +74,7 @@ public class Register_Activity extends AppCompatActivity {
 
         googleBtn=findViewById(R.id.registerGoogleButton);
         twitterBtn=findViewById(R.id.registerTwitterButton);
+        facebookBtn=findViewById(R.id.registerFacebookButton);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -124,6 +125,17 @@ public class Register_Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent=new Intent(Register_Activity.this,TwitterActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
+
+        facebookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Register_Activity.this, FacebookAuthActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
@@ -222,7 +234,7 @@ public class Register_Activity extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         dialog.dismiss();
-                                        DynamicToast.makeSuccess(Register_Activity.this,"Registration Successful!",3000).show();
+                                        DynamicToast.makeSuccess(Register_Activity.this,"Success!",R.drawable.ic_baseline_check_circle_outline_24).show();
                                         startActivity(new Intent(Register_Activity.this,Love_Test_Activity.class));
                                         finish();
                                     }
@@ -276,7 +288,7 @@ public class Register_Activity extends AppCompatActivity {
                                         if(task.isSuccessful())
                                         {
                                             dialog.dismiss();
-                                            DynamicToast.makeSuccess(Register_Activity.this,"Registration Successful! Please verify your Email...",3000).show();
+                                            DynamicToast.makeSuccess(Register_Activity.this,"Registration Successful! Please verify your Email...",R.drawable.ic_baseline_check_circle_outline_24).show();
                                             startActivity(new Intent(Register_Activity.this,Login_Activity.class));
                                             finish();
                                         }
