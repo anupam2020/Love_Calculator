@@ -146,13 +146,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/registerCardView"
                     android:layout_centerHorizontal="true"
-                    >
+                    android:background="@drawable/google_twitter_circle_black_border">
 
                     <ImageView
                         android:id="@+id/registerGoogleButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/glogin2" />
+                        android:src="@drawable/glogin2"
+                        android:padding="5dp"/>
 
                 </RelativeLayout>
 
@@ -163,13 +164,14 @@
                     android:id="@+id/registerCardView2"
                     android:layout_marginLeft="25dp"
                     android:layout_centerHorizontal="true"
-                    >
+                    android:background="@drawable/google_twitter_circle_black_border">
 
                     <ImageView
                         android:id="@+id/registerTwitterButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/twitter" />
+                        android:src="@drawable/twitter"
+                        android:padding="5dp"/>
 
                 </RelativeLayout>
 
@@ -180,13 +182,14 @@
                     android:id="@+id/registerCardView3"
                     android:layout_marginLeft="25dp"
                     android:layout_centerHorizontal="true"
-                    >
+                    android:background="@drawable/google_twitter_circle_black_border">
 
                     <ImageView
                         android:id="@+id/registerFacebookButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/facebook_circle" />
+                        android:src="@drawable/facebook_circle"
+                        android:padding="5dp"/>
 
                 </RelativeLayout>
 

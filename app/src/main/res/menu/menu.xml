@@ -5,6 +5,11 @@
         android:checkableBehavior="single">
 
         <item
+            android:title="Profile"
+            android:icon="@drawable/ic_baseline_person_pin_24"
+            android:id="@+id/profile"/>
+
+        <item
             android:title="Test Love"
             android:icon="@drawable/ic_baseline_favorite_border_24"
             android:id="@+id/loveTest"/>

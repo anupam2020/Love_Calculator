@@ -6,13 +6,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,20 +43,30 @@ public class Verification extends Fragment {
 
     private String sEmail;
 
-    private TextView status;
+    private TextView statusText,marquee;
+
+    private ImageView statusIcon;
 
     private ProgressDialog dialog;
+
+    SwipeRefreshLayout swipe;
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        marquee=view.findViewById(R.id.marqueeText);
+        marquee.setSelected(true);
+
         email=view.findViewById(R.id.verificationEmail);
 
         send=view.findViewById(R.id.verificationButton);
 
-        status=view.findViewById(R.id.verificationStatus);
+        statusText=view.findViewById(R.id.verificationStatusText);
+        statusIcon=view.findViewById(R.id.verificationStatusIcon);
+
+        swipe=view.findViewById(R.id.swipeToRefresh);
 
         dialog=new ProgressDialog(getActivity());
 
@@ -87,15 +101,18 @@ public class Verification extends Fragment {
             }
         });
 
-        if(firebaseAuth.getCurrentUser().isEmailVerified() == true)
+        if(firebaseAuth.getCurrentUser().isEmailVerified())
         {
-            status.setText("Verified!");
-            status.setTextColor(Color.GREEN);
+            statusText.setText("Verified!");
+            //statusText.setTextColor(Color.GREEN);
+            statusIcon.setImageResource(R.drawable.ic_baseline_check_circle_outline_24);
+            statusIcon.setColorFilter(ContextCompat.getColor(getContext(), R.color.green));
         }
         else
         {
-            status.setText("Verification Pending!");
-            status.setTextColor(Color.RED);
+            statusText.setText("Verification Pending!");
+            //statusText.setTextColor(Color.RED);
+            statusIcon.setColorFilter(ContextCompat.getColor(getContext(), R.color.red));
         }
 
 
@@ -115,50 +132,75 @@ public class Verification extends Fragment {
                 }
                 else
                 {
-
                     FirebaseUser user=firebaseAuth.getCurrentUser();
+
                     user.updateEmail(email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            if(task.isSuccessful())
-                            {
-                                //DynamicToast.makeSuccess(getActivity(),"Email successfully updated",1500).show();
-                            }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
 
-                            dialog.dismiss();
-                            DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
-                        }
-                    });
+                                    if(task.isSuccessful())
+                                    {
+                                        dialog.dismiss();
+                                        DynamicToast.makeWarning(getActivity(),"Email Verification Link sent!",1500).show();
+                                    }
 
-
-                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                            if(task.isSuccessful())
-                            {
-                                dialog.dismiss();
-                                DynamicToast.makeWarning(getActivity(),"Email Verification Link sent!",1500).show();
-                            }
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    dialog.dismiss();
+                                    DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
+                                }
+                            });
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+
                             dialog.dismiss();
                             DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
                         }
                     });
 
                 }
+            }
+        });
+
+
+
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+
+                if(user.isEmailVerified())
+                {
+                    statusText.setText("Verified!");
+                    //statusText.setTextColor(Color.GREEN);
+                    statusIcon.setImageResource(R.drawable.ic_baseline_check_circle_outline_24);
+                    statusIcon.setColorFilter(ContextCompat.getColor(getContext(), R.color.green));
+                }
+                else
+                {
+                    statusText.setText("Verification Pending!");
+                    //statusText.setTextColor(Color.RED);
+                    statusIcon.setColorFilter(ContextCompat.getColor(getContext(), R.color.red));
+                }
+
+                swipe.setRefreshing(false);
 
             }
         });
+
+
+        Log.d("Status", String.valueOf(firebaseAuth.getCurrentUser().isEmailVerified()));
+
 
     }
 

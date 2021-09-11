@@ -127,6 +127,7 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this,TwitterActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -138,6 +139,7 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this, FacebookAuthActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
+                finish();
             }
         });
 

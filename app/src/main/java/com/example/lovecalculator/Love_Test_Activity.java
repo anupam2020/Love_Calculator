@@ -103,7 +103,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         nav.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
-        nav.getMenu().getItem(0).setChecked(true);
+        nav.getMenu().getItem(1).setChecked(true);
         topText.setText("Love Test");
 
         logOut.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +180,11 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
         switch (item.getItemId())
         {
+
+            case R.id.profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Profile()).commit();
+                topText.setText("Profile");
+                break;
 
             case R.id.loveTest:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Love_Test()).commit();
