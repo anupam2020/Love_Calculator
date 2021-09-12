@@ -28,7 +28,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
-import com.shreyaspatil.material.navigationview.MaterialNavigationView;
 
 public class Love_Test_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -229,7 +228,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
         } catch(Exception e) {
-            DynamicToast.makeError(Love_Test_Activity.this,e.getMessage(),1500).show();
+            DynamicToast.makeError(Love_Test_Activity.this,e.getMessage(),2000).show();
         }
 
     }

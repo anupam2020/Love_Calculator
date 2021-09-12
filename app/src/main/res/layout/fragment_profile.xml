@@ -62,7 +62,9 @@
                     android:drawableTint="@color/orange"
                     android:drawablePadding="10dp"
                     android:id="@+id/profileEditText1"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:textIsSelectable="false"
+                    android:focusable="false"/>
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +89,9 @@
                     android:drawableStart="@drawable/ic_baseline_mail_outline_24"
                     android:drawableTint="@color/blue"
                     android:drawablePadding="10dp"
-                    android:id="@+id/profileEditText2"/>
+                    android:id="@+id/profileEditText2"
+                    android:textIsSelectable="false"
+                    android:focusable="false"/>
 
 
             </com.google.android.material.textfield.TextInputLayout>

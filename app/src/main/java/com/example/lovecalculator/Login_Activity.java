@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -52,11 +53,13 @@ public class Login_Activity extends AppCompatActivity {
 
     private ImageView googleBtn,twitterBtn,facebookBtn;
 
-    GoogleSignInClient mGoogleSignInClient;
+    private GoogleSignInClient mGoogleSignInClient;
 
     private static final String TAG="GOOGLEAUTH";
 
     private static final int RC_SIGN_IN = 1;
+
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,8 @@ public class Login_Activity extends AppCompatActivity {
         
         signIn=findViewById(R.id.loginButton);
 
+        linearLayout=findViewById(R.id.loginLinear);
+
         googleBtn=findViewById(R.id.loginGoogleButton);
         twitterBtn=findViewById(R.id.loginTwitterButton);
         facebookBtn=findViewById(R.id.loginFacebookButton);
@@ -86,8 +91,6 @@ public class Login_Activity extends AppCompatActivity {
         {
             if(firebaseAuth.getCurrentUser().isEmailVerified())
             {
-                Log.d("getUser",firebaseAuth.getCurrentUser().getEmail());
-                Log.d("email verify", String.valueOf(firebaseAuth.getCurrentUser().isEmailVerified()));
 
                 startActivity(new Intent(Login_Activity.this, Love_Test_Activity.class));
                 finish();
@@ -171,7 +174,7 @@ public class Login_Activity extends AppCompatActivity {
                 if(sEmail.isEmpty() || sPass.isEmpty())
                 {
                     dialog.dismiss();
-                    DynamicToast.makeWarning(Login_Activity.this,"Fields cannot be empty!",1500).show();
+                    DynamicToast.makeWarning(Login_Activity.this,"Fields cannot be empty!",2000).show();
                 }
                 else
                 {
@@ -194,7 +197,7 @@ public class Login_Activity extends AppCompatActivity {
                 if(email.getText().toString().isEmpty())
                 {
                     dialog.dismiss();
-                    DynamicToast.makeWarning(Login_Activity.this,"Please enter your email!",1500).show();
+                    DynamicToast.makeWarning(Login_Activity.this,"Please enter your email!",2000).show();
                 }
                 else
                 {
@@ -205,7 +208,8 @@ public class Login_Activity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 dialog.dismiss();
-                                DynamicToast.makeSuccess(Login_Activity.this,"Password Reset Link was sent to your account!",3000).show();
+                                DynamicToast.make(Login_Activity.this, "Password reset link was sent to your email!", getResources().getDrawable(R.drawable.ic_outline_mark_email_read_24),
+                                        getResources().getColor(R.color.blue), getResources().getColor(R.color.black), 2000).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -213,7 +217,7 @@ public class Login_Activity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
 
                             dialog.dismiss();
-                            DynamicToast.makeError(Login_Activity.this,e.getMessage(),1500).show();
+                            DynamicToast.makeError(Login_Activity.this,e.getMessage(),2000).show();
                         }
                     });
                 }
@@ -256,7 +260,7 @@ public class Login_Activity extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
 
                 dialog.dismiss();
-                DynamicToast.makeError(Login_Activity.this,"Google sign in failed!",3000).show();
+                DynamicToast.makeError(Login_Activity.this,"Google sign in failed!",2000).show();
             }
         }
     }
@@ -284,10 +288,12 @@ public class Login_Activity extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         dialog.dismiss();
-                                        DynamicToast.makeSuccess(Login_Activity.this,"Login Successful!",3000).show();
+                                        DynamicToast.make(Login_Activity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                         startActivity(new Intent(Login_Activity.this,Login_Activity.class));
                                         finish();
                                     }
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -319,17 +325,13 @@ public class Login_Activity extends AppCompatActivity {
 
                     if(task.isSuccessful())
                     {
-                        if(firebaseAuth.getCurrentUser()!=null && firebaseAuth.getCurrentUser().isEmailVerified())
+                        if(firebaseAuth.getCurrentUser()!=null)
                         {
                             dialog.dismiss();
-                            DynamicToast.makeSuccess(Login_Activity.this,"Login Successful!",2000).show();
+                            DynamicToast.make(Login_Activity.this, "Login Successful!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                    getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                             startActivity(new Intent(Login_Activity.this,Love_Test_Activity.class));
                             finish();
-                        }
-                        else
-                        {
-                            dialog.dismiss();
-                            DynamicToast.makeError(Login_Activity.this,"Please verify your email!",2000).show();
                         }
 
                     }

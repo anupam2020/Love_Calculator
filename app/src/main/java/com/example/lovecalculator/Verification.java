@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,7 +50,9 @@ public class Verification extends Fragment {
 
     private ProgressDialog dialog;
 
-    SwipeRefreshLayout swipe;
+    private SwipeRefreshLayout swipe;
+
+    private RelativeLayout relativeLayout;
 
 
     @Override
@@ -73,6 +76,8 @@ public class Verification extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
 
         reference= FirebaseDatabase.getInstance().getReference("Users");
+
+        relativeLayout=view.findViewById(R.id.verificationRelative);
 
         dialog.show();
         dialog.setContentView(R.layout.loading_bg);
@@ -127,7 +132,7 @@ public class Verification extends Fragment {
 
                 if(email.getText().toString().isEmpty())
                 {
-                    DynamicToast.makeWarning(getActivity(),"Email cannot be empty!",1500).show();
+                    DynamicToast.makeWarning(getActivity(),"Email cannot be empty!",2000).show();
                     dialog.dismiss();
                 }
                 else
@@ -145,7 +150,8 @@ public class Verification extends Fragment {
                                     if(task.isSuccessful())
                                     {
                                         dialog.dismiss();
-                                        DynamicToast.makeWarning(getActivity(),"Email Verification Link sent!",1500).show();
+                                        DynamicToast.make(getActivity(), "Email Verification Link Sent!", getResources().getDrawable(R.drawable.ic_outline_mark_email_read_24),
+                                                getResources().getColor(R.color.blue), getResources().getColor(R.color.black), 2000).show();
                                     }
 
                                 }
@@ -153,7 +159,7 @@ public class Verification extends Fragment {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     dialog.dismiss();
-                                    DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
+                                    DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
                                 }
                             });
 
@@ -163,7 +169,7 @@ public class Verification extends Fragment {
                         public void onFailure(@NonNull Exception e) {
 
                             dialog.dismiss();
-                            DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
+                            DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
                         }
                     });
 
@@ -199,7 +205,13 @@ public class Verification extends Fragment {
         });
 
 
-        Log.d("Status", String.valueOf(firebaseAuth.getCurrentUser().isEmailVerified()));
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                email.setSelected(false);
+            }
+        });
 
 
     }

@@ -83,7 +83,7 @@ public class Love_Test extends Fragment {
                 if(sName.isEmpty() || sPartner.isEmpty())
                 {
                     dialog.dismiss();
-                    DynamicToast.makeWarning(getActivity(),"Fields cannot be empty!",1500).show();
+                    DynamicToast.makeWarning(getActivity(),"Fields cannot be empty!",2000).show();
                 }
                 else
                 {
@@ -112,7 +112,7 @@ public class Love_Test extends Fragment {
             public void onFailure(Call call, IOException e) {
 
                 dialog.dismiss();
-                DynamicToast.makeError(getActivity(),"OOPs :(\nSomething went wrong!",1500).show();
+                DynamicToast.makeError(getActivity(),"OOPs :(\nSomething went wrong!",2000).show();
             }
 
             @Override
@@ -152,7 +152,6 @@ public class Love_Test extends Fragment {
                                     public void onComplete(@NonNull Task<Void> task) {
 
                                         dialog.dismiss();
-                                        //DynamicToast.makeSuccess(getActivity(),"Success!",1500).show();
 
                                         Intent intent=new Intent(getActivity(),LoveResultActivity.class);
                                         intent.putExtra("Name",sName);
@@ -167,14 +166,14 @@ public class Love_Test extends Fragment {
                                     public void onFailure(@NonNull Exception e) {
 
                                         dialog.dismiss();
-                                        DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
+                                        DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
                                     }
                                 });
 
                             } catch (JSONException e) {
 
                                 dialog.dismiss();
-                                DynamicToast.makeWarning(getActivity(),e.getMessage(),1500).show();
+                                DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
                             }
 
                         }

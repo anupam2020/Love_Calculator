@@ -79,6 +79,7 @@ public class Feedback extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+                DynamicToast.makeError(getActivity(),error.getMessage(),2000).show();
             }
         });
 
@@ -93,7 +94,8 @@ public class Feedback extends Fragment {
 
                 String feedback="Great to hear it from you!";
 
-                DynamicToast.make(getActivity(),feedback,1500).show();
+                DynamicToast.make(getActivity(), feedback, getResources().getDrawable(R.drawable.ic_baseline_sentiment_very_satisfied_24),
+                        getResources().getColor(R.color.green), getResources().getColor(R.color.black), 2000).show();
 
                 HashMap map=new HashMap();
                 //map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
@@ -131,7 +133,8 @@ public class Feedback extends Fragment {
 
                 String feedback="Thank You!";
 
-                DynamicToast.make(getActivity(),feedback,1500).show();
+                DynamicToast.make(getActivity(), feedback, getResources().getDrawable(R.drawable.ic_baseline_sentiment_satisfied_alt_24),
+                        getResources().getColor(R.color.yellow), getResources().getColor(R.color.black), 2000).show();
 
                 HashMap map=new HashMap();
                 //map.put("Name",firebaseAuth.getCurrentUser().getDisplayName());
@@ -170,7 +173,8 @@ public class Feedback extends Fragment {
 
                 String feedback="We'll try to improve next time!";
 
-                DynamicToast.make(getActivity(),feedback,1500).show();
+                DynamicToast.make(getActivity(), feedback, getResources().getDrawable(R.drawable.ic_baseline_sentiment_very_dissatisfied_24),
+                        getResources().getColor(R.color.red), getResources().getColor(R.color.black), 2000).show();
 
                 HashMap map=new HashMap();
                 //map.put("Name",firebaseAuth.getCurrentUser().getEmail());
@@ -207,7 +211,7 @@ public class Feedback extends Fragment {
 
                 if(message.isEmpty())
                 {
-                    DynamicToast.makeWarning(getActivity(),"Please enter the message!",1500).show();
+                    DynamicToast.makeWarning(getActivity(),"Please enter the message!",2000).show();
                 }
                 else
                 {
@@ -223,7 +227,7 @@ public class Feedback extends Fragment {
                     try {
                         startActivity(Intent.createChooser(email, "Choose an Email client"));
                     } catch (android.content.ActivityNotFoundException ex) {
-                        DynamicToast.makeError(getActivity(), "There is no email client installed.", 1500).show();
+                        DynamicToast.makeError(getActivity(), "There is no email client installed.", 2000).show();
                     }
                 }
 

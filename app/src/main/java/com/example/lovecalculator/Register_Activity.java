@@ -127,7 +127,7 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this,TwitterActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 
@@ -139,7 +139,7 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this, FacebookAuthActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 
@@ -236,7 +236,8 @@ public class Register_Activity extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         dialog.dismiss();
-                                        DynamicToast.makeSuccess(Register_Activity.this,"Success!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                        DynamicToast.make(Register_Activity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                         startActivity(new Intent(Register_Activity.this,Love_Test_Activity.class));
                                         finish();
                                     }
@@ -290,7 +291,8 @@ public class Register_Activity extends AppCompatActivity {
                                         if(task.isSuccessful())
                                         {
                                             dialog.dismiss();
-                                            DynamicToast.makeSuccess(Register_Activity.this,"Registration Successful! Please verify your Email...",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                            DynamicToast.make(Register_Activity.this, "Registration Successful! Please verify your email", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                    getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                             startActivity(new Intent(Register_Activity.this,Login_Activity.class));
                                             finish();
                                         }

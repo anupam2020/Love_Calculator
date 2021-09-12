@@ -109,7 +109,8 @@ public class FacebookAuthActivity extends AppCompatActivity {
 
                                     if(task.isSuccessful())
                                     {
-                                        DynamicToast.makeSuccess(FacebookAuthActivity.this,"Success!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                        DynamicToast.make(FacebookAuthActivity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                         startActivity(new Intent(FacebookAuthActivity.this,Love_Test_Activity.class));
                                         finish();
                                     }
@@ -126,7 +127,7 @@ public class FacebookAuthActivity extends AppCompatActivity {
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(FacebookAuthActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                            DynamicToast.makeError(FacebookAuthActivity.this,task.getException().toString(),2000).show();
                             finish();
                         }
                     }

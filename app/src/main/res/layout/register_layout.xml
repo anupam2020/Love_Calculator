@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -138,21 +138,19 @@
                 android:layout_below="@id/registerOR"
                 android:id="@+id/registerLinear"
                 android:layout_centerHorizontal="true"
-                android:padding="5dp"
-                android:background="@color/white">
+                android:padding="5dp">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/registerCardView"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/google_twitter_circle_black_border">
+                    android:layout_centerHorizontal="true">
 
                     <ImageView
                         android:id="@+id/registerGoogleButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/glogin2"
+                        android:src="@drawable/google_circle"
                         android:padding="5dp"/>
 
                 </RelativeLayout>
@@ -162,15 +160,14 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="50dp"
                     android:id="@+id/registerCardView2"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/google_twitter_circle_black_border">
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerHorizontal="true">
 
                     <ImageView
                         android:id="@+id/registerTwitterButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/twitter"
+                        android:src="@drawable/twitter_circle"
                         android:padding="5dp"/>
 
                 </RelativeLayout>
@@ -180,9 +177,8 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="50dp"
                     android:id="@+id/registerCardView3"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/google_twitter_circle_black_border">
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerHorizontal="true">
 
                     <ImageView
                         android:id="@+id/registerFacebookButton"
@@ -212,4 +208,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

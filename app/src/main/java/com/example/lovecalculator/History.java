@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -74,11 +73,6 @@ public class History extends Fragment {
                     myKey=dataSnapshot.getKey();
 
                     arrayList.add(new Item_Model(myKey,String.valueOf(dataSnapshot.child("Name").getValue()),String.valueOf(dataSnapshot.child("Partner").getValue()),String.valueOf(dataSnapshot.child("Percentage").getValue()),String.valueOf(dataSnapshot.child("Result").getValue()),String.valueOf(dataSnapshot.child("Date").getValue())));
-
-                    Log.d("Key",myKey);
-                    Log.d("Name",String.valueOf(dataSnapshot.child("Name").getValue()));
-                    Log.d("Partner",String.valueOf(dataSnapshot.child("Partner").getValue()));
-                    Log.d("Percentage",String.valueOf(dataSnapshot.child("Percentage").getValue()));
                 }
 
                 dialog.dismiss();
@@ -90,7 +84,7 @@ public class History extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
                 dialog.dismiss();
-                DynamicToast.makeError(getActivity(),error.getMessage(),1500).show();
+                DynamicToast.makeError(getActivity(),error.getMessage(),2000).show();
             }
         });
 

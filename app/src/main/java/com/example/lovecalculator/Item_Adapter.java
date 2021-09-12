@@ -82,7 +82,8 @@ public class Item_Adapter extends RecyclerView.Adapter<Item_Adapter.ItemViewHold
                                 if(task.isSuccessful())
                                 {
                                     pDialog.dismiss();
-                                    DynamicToast.makeSuccess(context,"Item successfully deleted!",1500).show();
+                                    DynamicToast.make(context, "Item successfully deleted!", v.getResources().getDrawable(R.drawable.ic_baseline_delete_outline_24),
+                                            v.getResources().getColor(R.color.white), v.getResources().getColor(R.color.black), 2000).show();
                                 }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -90,7 +91,7 @@ public class Item_Adapter extends RecyclerView.Adapter<Item_Adapter.ItemViewHold
                             public void onFailure(@NonNull Exception e) {
 
                                 pDialog.dismiss();
-                                DynamicToast.makeError(context,e.getMessage(),1500).show();
+                                DynamicToast.makeError(context,e.getMessage(),2000).show();
                             }
                         });
 

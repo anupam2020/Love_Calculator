@@ -64,7 +64,8 @@ public class TwitterActivity extends AppCompatActivity {
 
                                             if(task.isSuccessful())
                                             {
-                                                DynamicToast.makeSuccess(TwitterActivity.this,"Login Successful!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                                DynamicToast.make(TwitterActivity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                        getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                                 startActivity(new Intent(TwitterActivity.this,Love_Test_Activity.class));
                                                 finish();
                                             }
@@ -109,7 +110,8 @@ public class TwitterActivity extends AppCompatActivity {
 
                                             if(task.isSuccessful())
                                             {
-                                                DynamicToast.makeSuccess(TwitterActivity.this,"Registration Successful!",R.drawable.ic_baseline_check_circle_outline_24).show();
+                                                DynamicToast.make(TwitterActivity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
+                                                        getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
                                                 startActivity(new Intent(TwitterActivity.this,Love_Test_Activity.class));
                                                 finish();
                                             }

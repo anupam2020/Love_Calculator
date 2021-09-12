@@ -17,6 +17,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/gradient_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/grey_bg_shimmer.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_delete_outline_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.2703125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2703125" />
@@ -57,6 +58,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/layout/register_layout.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/menu/menu_delete.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/LoveCalculator/app/src/main/res/xml/file_path.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
