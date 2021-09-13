@@ -60,7 +60,8 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                finish();
+                finishAffinity();
+                System.exit(0);
             }
         });
 
@@ -118,7 +119,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                     public void onClick(DialogInterface dialog, int which) {
 
                         firebaseAuth.signOut();
-                        startActivity(new Intent(Love_Test_Activity.this,Login_Activity.class));
+                        startActivity(new Intent(Love_Test_Activity.this,MainActivity.class));
                         finish();
                     }
                 });
