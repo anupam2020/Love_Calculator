@@ -200,6 +200,12 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 topText.setText("Verification");
                 break;
 
+            case R.id.logout:
+                firebaseAuth.signOut();
+                startActivity(new Intent(Love_Test_Activity.this,MainActivity.class));
+                finish();
+                break;
+
             case R.id.feedback:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Feedback()).commit();
                 topText.setText("Feedback");

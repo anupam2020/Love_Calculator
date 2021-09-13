@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.jaeger.library.StatusBarUtil;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.io.File;
@@ -54,8 +56,12 @@ public class LoveResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_love_result);
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//
+//        StatusBarUtil.setTranslucentForImageView(LoveResultActivity.this, null);
+//
+//        View decorView = getWindow().getDecorView();
+//        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+//        decorView.setSystemUiVisibility(uiOptions);
 
         name=findViewById(R.id.loveResultName);
         partner=findViewById(R.id.loveResultPartner);

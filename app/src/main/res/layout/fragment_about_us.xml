@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Author: Anupam Basak"
+            android:text="@string/author_name"
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:textSize="18dp"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email: anupam00basak@gmail.com"
+            android:text="@string/author_email"
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:textSize="18dp"

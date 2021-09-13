@@ -17,10 +17,18 @@
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#F4511E</item>
+        <item name="colorPrimary">#FF0000</item>
         <item name="colorPrimaryDark">@color/violet</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">@color/violet</item>
+    </style>
+
+
+    <style name="NavTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="android:windowTranslucentNavigation">true</item>
+
+
     </style>
 
 
