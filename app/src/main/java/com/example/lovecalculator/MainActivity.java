@@ -113,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                finish();
+                finishAffinity();
+                System.exit(0);
             }
         });
 

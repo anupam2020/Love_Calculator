@@ -39,7 +39,7 @@ import java.util.HashMap;
 
 public class Login_Activity extends AppCompatActivity {
 
-    private TextView signUp,forgot,loginOR;
+    private TextView signUp,forgot,loginOR,marqueetxt1;
     
     private TextInputEditText email,pass;
     
@@ -72,6 +72,9 @@ public class Login_Activity extends AppCompatActivity {
 
         email=findViewById(R.id.loginEditText1);
         pass=findViewById(R.id.loginEditText2);
+
+        marqueetxt1=findViewById(R.id.loginMarqueeText);
+        marqueetxt1.setSelected(true);
         
         signIn=findViewById(R.id.loginButton);
 
@@ -103,6 +106,7 @@ public class Login_Activity extends AppCompatActivity {
         {
             case Configuration.UI_MODE_NIGHT_YES:
                 loginOR.setTextColor(Color.WHITE);
+                marqueetxt1.setTextColor(Color.WHITE);
                 break;
         }
 

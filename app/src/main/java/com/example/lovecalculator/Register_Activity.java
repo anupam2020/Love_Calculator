@@ -40,7 +40,7 @@ import java.util.HashMap;
 public class Register_Activity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
-    private TextView signIn,regOR;
+    private TextView signIn,regOR,marqueetxt2;
 
     private TextInputEditText name,email,pass;
 
@@ -72,6 +72,9 @@ public class Register_Activity extends AppCompatActivity {
 
         signUp=findViewById(R.id.registerButton);
 
+        marqueetxt2=findViewById(R.id.registerMarqueeText);
+        marqueetxt2.setSelected(true);
+
         googleBtn=findViewById(R.id.registerGoogleButton);
         twitterBtn=findViewById(R.id.registerTwitterButton);
         facebookBtn=findViewById(R.id.registerFacebookButton);
@@ -88,6 +91,7 @@ public class Register_Activity extends AppCompatActivity {
         {
             case Configuration.UI_MODE_NIGHT_YES:
                 regOR.setTextColor(Color.WHITE);
+                marqueetxt2.setTextColor(Color.WHITE);
                 break;
         }
 
@@ -127,7 +131,6 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this,TwitterActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-                //finish();
             }
         });
 
@@ -139,7 +142,6 @@ public class Register_Activity extends AppCompatActivity {
                 Intent intent=new Intent(Register_Activity.this, FacebookAuthActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-                //finish();
             }
         });
 
@@ -205,10 +207,7 @@ public class Register_Activity extends AppCompatActivity {
                 Log.w(TAG, "Google sign in failed", e);
 
                 dialog.dismiss();
-                dialog.show();
-                dialog.setContentView(R.layout.no_internet_connection);
-                dialog.setCancelable(true);
-                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                DynamicToast.makeError(Register_Activity.this,e.getMessage(),2000).show();
             }
         }
     }

@@ -40,11 +40,6 @@ public class Splash_Screen extends AppCompatActivity {
 
         StatusBarUtil.setTranslucentForImageView(Splash_Screen.this, null);
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-        decorView.setSystemUiVisibility(uiOptions);
-
-
         handler=new Handler(Looper.getMainLooper());
 
         dialog=new ProgressDialog(this);

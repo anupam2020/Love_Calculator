@@ -176,12 +176,33 @@
 
 
             <TextView
+                android:id="@+id/loginMarqueeText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginLinear"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:drawableStart="@drawable/ic_baseline_campaign_24"
+                android:drawableTint="@color/pink"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textSize="12dp"
+                android:text=" Google Sign-in Recommended !"
+                android:textColor="@color/black" />
+
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don't have an account? Sign Up"
                 android:textColor="#039BE5"
-                android:layout_below="@id/loginLinear"
-                android:layout_marginTop="30dp"
+                android:layout_below="@id/loginMarqueeText"
+                android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/loginNoAccount"
                 android:layout_marginBottom="15dp"
