@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 finishAffinity();
-                System.exit(0);
+                //System.exit(0);
             }
         });
 

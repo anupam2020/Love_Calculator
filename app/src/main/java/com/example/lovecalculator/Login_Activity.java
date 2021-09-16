@@ -364,7 +364,7 @@ public class Login_Activity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 finishAffinity();
-                System.exit(0);
+                //System.exit(0);
             }
         });
 

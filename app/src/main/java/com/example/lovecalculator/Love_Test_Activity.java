@@ -61,7 +61,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
             public void onClick(DialogInterface dialog, int which) {
 
                 finishAffinity();
-                System.exit(0);
+                //System.exit(0);
             }
         });
 
