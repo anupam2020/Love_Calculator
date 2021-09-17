@@ -207,7 +207,7 @@ public class Register_Activity extends AppCompatActivity {
                 Log.w(TAG, "Google sign in failed", e);
 
                 dialog.dismiss();
-                DynamicToast.makeError(Register_Activity.this,e.getMessage(),2000).show();
+                DynamicToast.makeError(Register_Activity.this,"Google sign in failed!",2000).show();
             }
         }
     }
