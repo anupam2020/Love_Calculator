@@ -284,7 +284,7 @@ public class Login_Activity extends AppCompatActivity {
                                         dialog.dismiss();
                                         DynamicToast.make(Login_Activity.this, "Success!", getResources().getDrawable(R.drawable.ic_baseline_check_circle_outline_24),
                                                 getResources().getColor(R.color.white), getResources().getColor(R.color.black), 2000).show();
-                                        startActivity(new Intent(Login_Activity.this,Login_Activity.class));
+                                        startActivity(new Intent(Login_Activity.this,Love_Test_Activity.class));
                                         finish();
                                     }
 
