@@ -90,16 +90,6 @@ public class Login_Activity extends AppCompatActivity {
         
         dialog=new ProgressDialog(Login_Activity.this);
 
-        if(firebaseAuth.getCurrentUser()!=null)
-        {
-            if(firebaseAuth.getCurrentUser().isEmailVerified())
-            {
-
-                startActivity(new Intent(Login_Activity.this, Love_Test_Activity.class));
-                finish();
-            }
-        }
-
 
         int nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         switch (nightModeFlags)
