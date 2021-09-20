@@ -207,6 +207,16 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 finish();
                 break;
 
+            case R.id.terms:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new TermsConditions()).commit();
+                topText.setText("Terms & Conditions");
+                break;
+
+            case R.id.privacy:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new PrivacyPolicy()).commit();
+                topText.setText("Privacy Policy");
+                break;
+
             case R.id.feedback:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Feedback()).commit();
                 topText.setText("Feedback");
