@@ -163,7 +163,7 @@ public class Register_Activity extends AppCompatActivity {
                 if(sName.isEmpty() || sEmail.isEmpty() || sPass.isEmpty())
                 {
                     dialog.dismiss();
-                    DynamicToast.makeWarning(Register_Activity.this,"Fields cannot be empty!",1500).show();
+                    DynamicToast.makeWarning(Register_Activity.this,"Fields cannot be empty!",2000).show();
                 }
                 else
                 {

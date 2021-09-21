@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/corner_radius_bg">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:lottie_fileName="71565-no-internet.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:id="@+id/noInternetLottie"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Network Error !"
+            android:textSize="20dp"
+            android:layout_below="@id/noInternetLottie"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

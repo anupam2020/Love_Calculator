@@ -111,8 +111,20 @@ public class Love_Test extends Fragment {
             @Override
             public void onFailure(Call call, IOException e) {
 
-                dialog.dismiss();
-                DynamicToast.makeError(getActivity(),"OOPs :(\nSomething went wrong!",2000).show();
+
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+
+                        dialog.dismiss();
+
+                        dialog.show();
+                        dialog.setContentView(R.layout.no_internet);
+                        dialog.setCancelable(true);
+                        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    }
+                });
+
+
             }
 
             @Override

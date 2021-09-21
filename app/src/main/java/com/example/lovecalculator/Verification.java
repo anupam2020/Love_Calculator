@@ -143,25 +143,28 @@ public class Verification extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful())
+                            {
+                                user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
 
-                                    if(task.isSuccessful())
-                                    {
-                                        dialog.dismiss();
-                                        DynamicToast.make(getActivity(), "Email Verification Link Sent!", getResources().getDrawable(R.drawable.ic_outline_mark_email_read_24),
-                                                getResources().getColor(R.color.blue), getResources().getColor(R.color.black), 2000).show();
+                                        if(task.isSuccessful())
+                                        {
+                                            dialog.dismiss();
+                                            DynamicToast.make(getActivity(), "Email Verification Link Sent!", getResources().getDrawable(R.drawable.ic_outline_mark_email_read_24),
+                                                    getResources().getColor(R.color.blue), getResources().getColor(R.color.black), 2000).show();
+                                        }
+
                                     }
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    dialog.dismiss();
-                                    DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
-                                }
-                            });
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        dialog.dismiss();
+                                        DynamicToast.makeError(getActivity(),e.getMessage(),2000).show();
+                                    }
+                                });
+                            }
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
