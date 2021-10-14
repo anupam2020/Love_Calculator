@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name="com.sbdev.lovecalculator.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
@@ -16,44 +17,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoveCalculator">
         <activity
-            android:name=".TwitterActivity"
+            android:name="com.sbdev.lovecalculator.TwitterActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".FacebookAuthActivity"
+            android:name="com.sbdev.lovecalculator.FacebookAuthActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".LoveResultActivity"
+            android:name="com.sbdev.lovecalculator.LoveResultActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".Love_Test_Activity"
+            android:name="com.sbdev.lovecalculator.Love_Test_Activity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".Login_Activity"
+            android:name="com.sbdev.lovecalculator.Login_Activity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".Register_Activity"
+            android:name="com.sbdev.lovecalculator.Register_Activity"
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
-            android:name=".Splash_Screen"
+            android:name="com.sbdev.lovecalculator.Splash_Screen"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -63,13 +64,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.sbdev.lovecalculator.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
 
         <service
-            android:name=".PushNotificationService"
+            android:name="com.sbdev.lovecalculator.PushNotificationService"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,7 +88,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.lovecalculator.LoveResultActivity.provider"
+            android:authorities="com.sbdev.lovecalculator.LoveResultActivity.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

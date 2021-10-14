@@ -1,23 +1,24 @@
 {
   "project_info": {
     "project_number": "148994927020",
+    "firebase_url": "https://love-calculator-71046-default-rtdb.firebaseio.com",
     "project_id": "love-calculator-71046",
     "storage_bucket": "love-calculator-71046.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:148994927020:android:97c6c00372c1d4e574f209",
+        "mobilesdk_app_id": "1:148994927020:android:ad8755ba48859c0d74f209",
         "android_client_info": {
-          "package_name": "com.example.lovecalculator"
+          "package_name": "com.sbdev.lovecalculator"
         }
       },
       "oauth_client": [
         {
-          "client_id": "148994927020-0dibms4na6strd1osclvrvhv8fq1h0jm.apps.googleusercontent.com",
+          "client_id": "148994927020-ge6rvjjh69nssqchluhvu0jcu078o2uu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.lovecalculator",
+            "package_name": "com.sbdev.lovecalculator",
             "certificate_hash": "7c3deb02e9140275ca0db8e4d5718c5b4dcc8b22"
           }
         },
