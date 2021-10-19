@@ -71,7 +71,7 @@
 
         <service
             android:name="com.sbdev.lovecalculator.PushNotificationService"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -81,9 +81,8 @@
             </intent-filter>
         </service>
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
 
 
         <provider
