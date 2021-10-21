@@ -9,9 +9,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.lovecalculator.R;
@@ -28,7 +31,7 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
     private FirebaseAuth firebaseAuth;
 
-    private DatabaseReference nameRef;
+    private DatabaseReference nameRef,histRef;
 
     private NavigationView nav;
 
@@ -40,9 +43,11 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
     private TextView hName,hEmail;
 
-    private TextView topText;
+    private TextView topText,historyText;
 
     private String userName,userEmail;
+
+    private RelativeLayout relativeLayout;
 
     @Override
     public void onBackPressed() {
@@ -82,13 +87,20 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
         menu=findViewById(R.id.testMenu);
         topText=findViewById(R.id.loveTestTopText);
 
+        relativeLayout=findViewById(R.id.loveMainRelative2);
+
         drawer=findViewById(R.id.drawer_layout);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
         nameRef= FirebaseDatabase.getInstance().getReference("Users");
+        histRef= FirebaseDatabase.getInstance().getReference("Love_Tests");
 
         nav=findViewById(R.id.navView);
+        nav.getMenu().getItem(2).setActionView(R.layout.history_count);
+
+        View v=nav.getMenu().getItem(2).getActionView();
+        historyText=v.findViewById(R.id.historyCountText);
 
         view=nav.getHeaderView(0);
 
@@ -158,6 +170,24 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
 
             }
         });
+
+
+        histRef.child(firebaseAuth.getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Log.d("Children Count", String.valueOf(snapshot.getChildrenCount()));
+
+                        historyText.setText(String.valueOf(snapshot.getChildrenCount()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
 
         menu.setOnClickListener(new View.OnClickListener() {
