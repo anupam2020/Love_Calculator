@@ -43,7 +43,7 @@ public class LoveResultActivity extends AppCompatActivity {
 
     private String sName,sPartner,sResult,sPercentage;
 
-    private ImageView shareImage;
+    private ImageView shareImage,backImage;
 
     private File imagePath;
 
@@ -64,6 +64,7 @@ public class LoveResultActivity extends AppCompatActivity {
         percentage=findViewById(R.id.loveResultPercentage);
 
         shareImage=findViewById(R.id.loveResultShare);
+        backImage=findViewById(R.id.loveResultBack);
 
         relativeLayout=findViewById(R.id.loveResultRelative2);
 
@@ -91,6 +92,14 @@ public class LoveResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 takeScreenShot(getWindow().getDecorView());
+            }
+        });
+
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
             }
         });
 
