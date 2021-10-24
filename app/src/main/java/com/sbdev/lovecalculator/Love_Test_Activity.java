@@ -6,8 +6,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -221,16 +223,10 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
                 topText.setText("History");
                 break;
 
-            case R.id.emailVerification:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new Verification()).commit();
-                topText.setText("Verification");
+            case R.id.updateApp:
+                openAppInGooglePlay();
                 break;
 
-            case R.id.logout:
-                firebaseAuth.signOut();
-                startActivity(new Intent(Love_Test_Activity.this,MainActivity.class));
-                finish();
-                break;
 
             case R.id.terms:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new TermsConditions()).commit();
@@ -273,5 +269,14 @@ public class Love_Test_Activity extends AppCompatActivity implements NavigationV
             DynamicToast.makeError(Love_Test_Activity.this,e.getMessage(),2000).show();
         }
 
+    }
+
+    public void openAppInGooglePlay() {
+        final String appPackageName = getPackageName();
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException e) { // if there is no Google Play on device
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
     }
 }
