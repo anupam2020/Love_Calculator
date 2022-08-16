@@ -3,9 +3,6 @@ Hello! I'll calculate love % of you and your partner. Don't worry if you are sin
 
 I'm using Rapid API to calculate the Love Percentage :)
 
-## Love Calculator
-* Get love % of you and your partner and chances of successful love relationship!
-
 ### Libraries :
 * Lottie Animations
 * Firebase
